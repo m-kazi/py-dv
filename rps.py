@@ -7,28 +7,29 @@ from enum import Enum
 # Constant variable are always uppercase
 
 
-class RPS(Enum):
-    ROCK = 1
-    PAPER = 2
-    SCISSORS = 3
+def play_rps():
 
+    class RPS(Enum):
+        ROCK = 1
+        PAPER = 2
+        SCISSORS = 3
 
-# print(RPS(2))
-# print(RPS.ROCK)
-# print(RPS['ROCK'])
-# print(RPS.ROCK.value)
+    # print(RPS(2))
+    # print(RPS.ROCK)
+    # print(RPS['ROCK'])
+    # print(RPS.ROCK.value)
 
-playagain = True
-
-while playagain:
     playerChoice = input(
         "\nEnter...\n1 for Rock,\n2 for Paper, or \n3 for Scissors:\n\n"
     )
+
     # user input is string so need to convert into int
     player = int(playerChoice)
 
-    if player < 1 or player > 3:
-        sys.exit("You must enter 1, 2, or 3.")
+    # typing anything besides 1,2,3 will
+    if playerChoice not in ["1", "2", "3"]:
+        print("You must enter 1, 2, or 3.")
+        return play_rps()
 
     computerChoice = random.choice("123")
     computer = int(computerChoice)
@@ -47,13 +48,21 @@ while playagain:
     else:
         print("🐍 Python wins!")
 
-    playagain = input("\nPlay again? \nY for Yes or \nQ for quit \n\n")
+    # if anything is typed besides y or q it will keep asking
+    print("\nPlay again?")
+    while True:
+        playagain = input("\nY for Yes or \nQ for quit \n")
+        if playagain.lower() not in ["y", "q"]:
+            continue
+        else:
+            break
 
     if playagain.lower() == "y":
-        continue
+        play_rps()
     else:
         print("\n🎉🎉🎉🎉")
         print("Thank you for playing!\n")
-        playagain = False
+        sys.exit("Bye! 👋")
 
-sys.exit("Bye! 👋")
+
+play_rps()
