@@ -5,6 +5,11 @@ from math import pi
 # importing random and creating as an Alias
 import random as rdm
 
+# importing RPS
+from rps import rock_paper_scissors
+
+rock_paper_scissors()
+
 print(rdm.choice("123"))
 
 # to know what to use from a module
