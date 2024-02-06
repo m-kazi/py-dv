@@ -39,8 +39,8 @@ def rps():
         computerChoice = random.choice("123")
         computer = int(computerChoice)
 
-        print("\nYou chose " + str(RPS(player)).replace("RPS.", "") + ".")
-        print("Python chose " + str(RPS(computer)).replace("RPS.", "") + ".\n")
+        print(f"\nYou chose {str(RPS(player)).replace("RPS.", "").title()}.")
+        print(f"Python chose {str(RPS(computer)).replace("RPS.", "").title()}.\n")
 
         def decide_winner(player, computer):
             nonlocal player_wins
@@ -66,9 +66,9 @@ def rps():
         # parent function scope variable and game count print
         nonlocal game_count
         game_count += 1
-        print("\nGame count: " + str(game_count))
-        print("\nPlayer wins count: " + str(player_wins))
-        print("\nPython wins count: " + str(python_wins))
+        print(f"\nGame count: {(game_count)}")
+        print(f"\nPlayer wins count: {(player_wins)}")
+        print(f"\nPython wins count: {(python_wins)}")
 
         # if anything is typed besides y or q it will keep asking
         print("\nPlay again?")
